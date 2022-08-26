@@ -4,6 +4,7 @@ const firstNumber = document.getElementById("firstnumber"); //first input field
 const secondNumber = document.getElementById("secondnumber"); //second input field
 const calculateBtn = document.getElementById("calculate"); //calculate button
 const operators = document.getElementById("operator"); //drop down list of mathematical operators
+const results = document.getElementById("results"); //list of saved results
 
 let num1; //first number
 let num2; //second number
@@ -36,25 +37,31 @@ function calculate(a, b) {
   //calculate with the selected operator
   switch (selectedOperator) {
     case "add":
-      console.log(a + b);
+      //console.log(a + b);
       result = a + b;
       break;
 
     case "sub":
-      console.log(a - b);
+      //console.log(a - b);
       result = a - b;
       break;
 
     case "mul":
-      console.log(a * b);
+      //console.log(a * b);
       result = a * b;
       break;
 
     case "div":
-      console.log(a / b);
+      //console.log(a / b);
       result = a / b;
       break;
   }
+  saveHistory(result);
+}
 
-  //saveHistory(result);
+//save and append the result to the list
+function saveHistory(result) {
+  let savedResult = document.createElement("li");
+  savedResult.textContent = result;
+  results.appendChild(savedResult);
 }
