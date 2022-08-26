@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", eventListeners);
 
 //adds event listeners to elements
 function eventListeners() {
-  calculateBtn.addEventListener("click", calculate);
+  calculateBtn.addEventListener("click", readNumbers);
 }
 
-//calculate two numbers
-function calculate() {
-  //console.log("calculating");
+//read the numbers in the input fields
+function readNumbers() {
+  //parseFloat allows the user to input decimal numbers as opposed to parseInt
+  num1 = parseFloat(firstNumber.value);
+  num2 = parseFloat(secondNumber.value);
+
+  calculate(num1, num2);
 }
