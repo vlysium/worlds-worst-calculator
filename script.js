@@ -12,7 +12,7 @@ let num1; //first number
 let num2; //second number
 let result; //first and second number calculated
 let selectedOperator; //the selected operator from the drop down list
-let rounding = document.getElementById("doround").checked; //rounding true or false
+let rounding = document.getElementById("doround"); //rounding true or false
 let decimalPoint; //decimal point
 
 //wait until the document is loaded to call the function
@@ -73,7 +73,7 @@ function calculate(a, b) {
 //rounding the result
 function roundingNumbers(result) {
   //if rounding is enabled
-  if (rounding) {
+  if (rounding.checked === true) {
     decimalPoint = decimals.options[decimals.selectedIndex].value;
     result = Math.round(result * Math.pow(10, decimalPoint)) / Math.pow(10, decimalPoint);
   }
