@@ -63,6 +63,8 @@ function calculate(a, b) {
       result = a / b;
       break;
   }
+  firstNumber.value = result;
+
   saveHistory(result);
 }
 
