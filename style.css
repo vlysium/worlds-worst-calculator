@@ -12,31 +12,48 @@ h1 {
 }
 
 #interface {
-  background-color: lightgray;
+  background-color: hsl(0, 0%, 84%);
   border-radius: 0.4em;
-  width: 300px;
+  width: 400px;
   font-family: "Courier New", Courier, monospace;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.2em;
+  gap: 16px;
   margin: auto;
 }
 
 #results {
   list-style: none;
-  padding: 0;
   text-align: right;
-  height: 8em;
-  max-height: 8em;
+  height: 9em;
+  max-height: 9em;
+  width: 368px;
   overflow-y: scroll;
+  background-color: hsl(0, 0%, 96%);
+}
+
+#results li {
+  padding-block: 0.25em;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+#results li:last-child {
+  font-size: 1.5rem;
+  height: 39px;
+  font-weight: 600;
+
+  animation-name: appear;
+  animation-duration: 0.3s;
 }
 
 #clear {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 10px;
-  color: cornflowerblue;
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: darkred;
 }
 
 #clear:hover {
@@ -45,11 +62,27 @@ h1 {
 }
 
 input[type="text"] {
-  width: calc(100% - 1em);
+  width: 368px;
   text-align: right;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1rem;
+  background-color: hsl(0, 0%, 96%);
+  border: none;
+  padding: 6px;
 }
 
 select,
 button {
-  height: 3em;
+  padding: 8px;
+  border: none;
+}
+
+@keyframes appear {
+  0% {
+    font-size: 0rem;
+  }
+
+  100% {
+    font-size: 1.5rem;
+  }
 }
