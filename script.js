@@ -3,9 +3,12 @@
 const firstNumber = document.getElementById("firstnumber"); //first input field
 const secondNumber = document.getElementById("secondnumber"); //second input field
 const calculateBtn = document.getElementById("calculate"); //calculate button
+const operators = document.getElementById("operator"); //drop down list of mathematical operators
 
 let num1; //first number
 let num2; //second number
+let result; //first and second number calculated
+let selectedOperator; //the selected operator from the drop down list
 
 //wait until the document is loaded to call the function
 document.addEventListener("DOMContentLoaded", eventListeners);
@@ -21,5 +24,37 @@ function readNumbers() {
   num1 = parseFloat(firstNumber.value);
   num2 = parseFloat(secondNumber.value);
 
+  //pass the assigned values to the calculate() function
   calculate(num1, num2);
+}
+
+//calculate the numbers with the values received from readNumbers()
+function calculate(a, b) {
+  //assign the selected operator
+  selectedOperator = operators.options[operators.selectedIndex].value;
+
+  //calculate with the selected operator
+  switch (selectedOperator) {
+    case "add":
+      console.log(a + b);
+      result = a + b;
+      break;
+
+    case "sub":
+      console.log(a - b);
+      result = a - b;
+      break;
+
+    case "mul":
+      console.log(a * b);
+      result = a * b;
+      break;
+
+    case "div":
+      console.log(a / b);
+      result = a / b;
+      break;
+  }
+
+  //saveHistory(result);
 }
