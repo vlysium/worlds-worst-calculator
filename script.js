@@ -6,11 +6,14 @@ const calculateBtn = document.getElementById("calculate"); //calculate button
 const clear = document.getElementById("clear"); //clear button
 const operators = document.getElementById("operator"); //drop down list of mathematical operators
 const results = document.getElementById("results"); //list of saved results
+const decimals = document.getElementById("decimals"); //rounding drop down list
 
 let num1; //first number
 let num2; //second number
 let result; //first and second number calculated
 let selectedOperator; //the selected operator from the drop down list
+let rounding = document.getElementById("doround").checked; //rounding true or false
+let decimalPoint; //decimal point
 
 //wait until the document is loaded to call the function
 document.addEventListener("DOMContentLoaded", eventListeners);
@@ -63,8 +66,18 @@ function calculate(a, b) {
       result = a / b;
       break;
   }
-  firstNumber.value = result;
 
+  roundingNumbers(result);
+}
+
+//rounding the result
+function roundingNumbers(result) {
+  //if rounding is enabled
+  if (rounding) {
+    decimalPoint = decimals.options[decimals.selectedIndex].value;
+    result = Math.round(result * Math.pow(10, decimalPoint)) / Math.pow(10, decimalPoint);
+  }
+  firstNumber.value = result;
   saveHistory(result);
 }
 
