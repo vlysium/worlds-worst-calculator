@@ -86,4 +86,7 @@ function saveHistory(result) {
   let savedResult = document.createElement("li");
   savedResult.textContent = result;
   results.appendChild(savedResult);
+
+  //automatically scroll down to the bottom
+  results.scrollTop = results.scrollHeight;
 }
