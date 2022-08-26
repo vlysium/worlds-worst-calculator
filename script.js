@@ -3,6 +3,7 @@
 const firstNumber = document.getElementById("firstnumber"); //first input field
 const secondNumber = document.getElementById("secondnumber"); //second input field
 const calculateBtn = document.getElementById("calculate"); //calculate button
+const clear = document.getElementById("clear"); //clear button
 const operators = document.getElementById("operator"); //drop down list of mathematical operators
 const results = document.getElementById("results"); //list of saved results
 
@@ -17,6 +18,12 @@ document.addEventListener("DOMContentLoaded", eventListeners);
 //adds event listeners to elements
 function eventListeners() {
   calculateBtn.addEventListener("click", readNumbers);
+  clear.addEventListener("click", clearHistory);
+}
+
+//clears the history
+function clearHistory() {
+  results.textContent = "";
 }
 
 //read the numbers in the input fields
